@@ -1,14 +1,12 @@
-const Card = () => {
+const Card = ({ data: { id, name, types }, image }) => {
+  console.log(image);
   return (
     <div className="card flex flex-col m-3">
       <figure className="bg-gray-100 rounded-xl">
-        <img
-          src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png"
-          alt=""
-        />
+        <img src={image} alt="" className="w-64 h-60" />
       </figure>
-      <p>#0001</p>
-      <h1>Bulbasaur</h1>
+      <p>#{id}</p>
+      <h1>{name.toUpperCase()}</h1>
       <div>
         <p>Grass</p>
         <p>Poison</p>
