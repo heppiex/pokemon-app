@@ -1,5 +1,4 @@
 const Card = ({ data: { id, name, types }, image }) => {
-  console.log(image);
   return (
     <div className="card flex flex-col m-3">
       <figure className="bg-gray-100 rounded-xl">
@@ -8,8 +7,14 @@ const Card = ({ data: { id, name, types }, image }) => {
       <p>#{id}</p>
       <h1>{name.toUpperCase()}</h1>
       <div>
-        <p>Grass</p>
-        <p>Poison</p>
+        {types.map((type, index) => {
+          const pokemonType = type.type.name;
+          return (
+            <p key={index}>{`${
+              pokemonType.charAt(0).toUpperCase() + pokemonType.slice(1)
+            }`}</p>
+          );
+        })}
       </div>
     </div>
   );
